@@ -1,0 +1,17 @@
+body {
+  color: green;
+}
+
+p {
+  color: hotpink;
+}
+
+h1,
+h2,
+h3 {
+  color: magenta !important;
+}
+
+h1 {
+  font-size: 20px;
+}

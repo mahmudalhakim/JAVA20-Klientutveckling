@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-family: 'Gill Sans', Calibri, verdana, sans-serif;
+    font-size: 1.5em;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3em;
+    color:indianred;
+    font-variant: small-caps;
+}
+
+.ingress{
+    font-size: 1.1em;
+    font-weight: bold;
+    color:limegreen;
+}
