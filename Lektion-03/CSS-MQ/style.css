@@ -1,0 +1,28 @@
+body {
+  background-color: grey;
+}
+
+@media (min-width: 576px) {
+  body {
+    background-color: red;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: green;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    background-color: blue;
+    color:cornsilk;
+  }
+  h1{
+      font-size: 3em;
+  }
+  p{
+      font-size: 1.5em;
+  }
+}
