@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Händelsehantering i JavaScript</title>
+</head>
+<body>
+    <h1>Händelsehantering i JavaScript</h1>
+    
+    <button onclick="callMyFunktion()">Klicka här för att hantera ett event</button>
+    <div id="demo1"></div>
+
+    <hr>
+
+    <!-- Exempel från w3schools -->
+    <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+    <h1 id="demo"></h2>
+    
+    <hr>
+    
+    <button onclick="this.innerHTML = new Date().toLocaleTimeString();">The time is?</button>
+
+    
+    <hr>
+
+    <button onclick="showTime()">Visa klockan</button>
+    <h2 id="demo2"></h2>
+
+    <hr>
+
+    <button id="btn1">Arbeta med en lyssnare!</button>
+
+
+    <script>
+        function callMyFunktion(){
+             document.getElementById("demo1").innerHTML = "<h2>Hello Events!</h2>";
+        }
+
+        function showTime(){
+            document.getElementById("demo2").innerHTML = new Date().toLocaleTimeString();
+        }
+
+        // Arbeta med en lyssnare
+        document.getElementById("btn1").addEventListener("click", showTime);
+
+    </script>
+</body>
+</html>
