@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM - Window</title>
+  </head>
+  <body>
+    <h1>BOM - Window</h1>
+    <h2 id="user"></h2>
+    <h3 id="sum">Summa: </h3>
+    <script>
+      // window.alert == alert
+
+      let username = prompt("Vad heter du?");
+
+      const userElement = document.getElementById("user");
+      userElement.innerHTML = "Hej " + username + "!";
+      // ES6 (ES2015)
+      userElement.innerHTML = `Hello ${username}!`;
+
+      let tal1 = prompt("Ange tal 1");
+      let tal2 = prompt("Ange tal 2");
+      const sumElement = document.getElementById("sum");
+      let sum = Number(tal1) + Number(tal2)
+      sumElement.innerHTML += sum ; 
+
+      // Objektet console
+      console.log("Hello from console");
+      console.log(username);
+      console.log(userElement);
+      console.log("Tal 1 = " + tal1);
+      console.log("Tal 2 = " + tal2);
+      console.log("Summa = " + sum);
+
+
+    </script>
+  </body>
+</html>

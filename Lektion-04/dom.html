@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Object Model</title>
+  </head>
+  <body>
+    <h1 id="one">Document Object Model</h1>
+    <p id="demo">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat omnis,
+      alias nemo labore aliquam, ipsa quam dolor, dolore eveniet accusamus
+      architecto officiis adipisci rerum. Aperiam esse unde cupiditate
+      exercitationem quidem!
+    </p>
+
+    <p id="text"></p>
+
+    <p id="hide">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore alias
+      dicta, consectetur voluptatibus reprehenderit blanditiis sit ad, dolor,
+      fugit quisquam incidunt ipsam vero. Ut quo, illo placeat nulla quasi
+      expedita?
+    </p>
+
+    <script>
+      document.write("Hello from DOM");
+
+      const h1 = document.getElementById("one");
+      //const h1 = "";
+      // Uncaught SyntaxError: Identifier 'h1' has already been declared
+      // h1 = "";
+      // Uncaught TypeError: Assignment to constant variable.
+      h1.innerHTML = "DOM";
+
+      const pElement = document.getElementById("demo");
+
+      // Manipulera HTML
+      pElement.innerHTML = "<h2>Welcome to DOM</h2>";
+
+      // OBS! innerText renderar ej HTML-kod
+      document.getElementById("text").innerText = "<h1>Lorem Ipsum</h1>";
+
+      // Manipluera CSS
+      h1.style.color = "orange";
+      h1.style.fontFamily = "Arial, sans-serif";
+      h1.style.fontSize = "3em";
+
+      // Ta bort ett element
+      //document.getElementById("hide").style.display = "none";
+      // Dölj ett element
+      document.getElementById("hide").style.visibility = "hidden";
+      
+    </script>
+  </body>
+</html>

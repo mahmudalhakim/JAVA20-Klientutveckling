@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variabler</title>
+  </head>
+  <body>
+    <h1>Variabler i JavaScript</h1>
+    <script>
+      // Numbers
+      var x1 = 1;
+      let x2 = 2;
+      const x3 = 3;
+
+      var s1 = "A";
+      let s2 = "B";
+      const s3 = "C";
+
+      s1 = "D"; // OK
+      s2 = "E"; // OK
+      // s3 = "F"; // Uncaught TypeError: Assignment to constant variable.
+
+      var s1 = "G"; // OK men buggigt
+      // let s2 = "H";   // Uncaught SyntaxError: Identifier 's2' has already been declared
+      // const s3 = "I"; // Uncaught SyntaxError: Identifier 's3' has already been declared
+
+      console.log(typeof x1); // number
+      console.log(typeof s1); // string
+
+      const myArray = ["A", "B", "C"];
+      console.log(myArray);
+      console.log(typeof(myArray)); // object
+      console.log(myArray.length);
+
+      let u1 = undefined;
+      let u2;
+      console.log(typeof(u1)); // undefined
+      console.log(typeof(u2)); // undefined
+
+      let n1 = null;
+      console.log(typeof(n1)); // object => Wierd!!!!
+      console.log(n1 == null); // true  
+
+
+    </script>
+  </body>
+</html>
