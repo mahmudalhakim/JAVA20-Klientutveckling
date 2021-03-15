@@ -12,7 +12,7 @@
     <div id="demo1">Innehållet kommer att ändras via jQuery</div>
 
     <h2>Formulär</h2>
-    <form action="">
+    <form action="#">
       <input id="demo2" type="text" value="Test" />
     </form>
 
@@ -29,9 +29,11 @@
     </ul>
     <hr>
 
-    <p id="demo5">
+    <div id="demo5">
        DEMO 5
-    </p>
+    </div>
+
+    <img src="https://webacademy.se/images/logo2.png">
 
     <script src="jquery-3.6.0.min.js"></script>
     <script>
@@ -63,6 +65,7 @@
         $("#demo5").after("<p>Efter DEMO 5</p>");
         $("#demo5").prepend("<p>Start</p>");
         $("#demo5").append("<p>Slut</p>");
+        $("#demo5").after("<img src='https://webacademy.se/images/logo2.png'>");
         
 
       });

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery - Events</title>
+  </head>
+  <body>
+    <h1>jQuery - Events</h1>
+
+    <h2 id="demo">Demo på "Mouse Events"</h2>
+
+    <h2>Formulär</h2>
+    <form action="#">
+        Namn <br>
+        <input type="text"> <br><br>
+        E-post <br>
+        <input type="email"> <br><br>
+        <input type="submit" value="Skicka">
+    </form>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        $("#demo").mouseenter(function(){
+            console.log("mouseenter");
+            $(this).html("Demo på mouseenter!")
+        });
+
+        $("#demo").mouseout(function(){
+            console.log("mouseout");
+            $(this).html("Demo på mouseout!")
+        });
+
+        $("#demo").mousedown(function(){
+            console.log("mousedown");
+            $(this).html("Demo på mousedown!")
+        });
+
+        $("#demo").mouseup(function(){
+            console.log("mouseup");
+            $(this).html("Demo på mouseup!")
+        });
+
+        $("input").focus(function(){
+            $(this).css("background-color", "gold");
+        });
+
+        $("input").blur(function(){
+            $(this).css("background-color", "#FFF");
+        });
+
+      });
+    </script>
+  </body>
+</html>
