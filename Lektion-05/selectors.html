@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery - Selectors</title>
+  </head>
+  <body>
+    <h1>jQuery - Selectors</h1>
+
+    <h2>Type Selector</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam deleniti,
+      rem aliquid quis eveniet incidunt esse quibusdam repellat eos debitis,
+      quos praesentium vel voluptate, mollitia eius ab pariatur illum eum?
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam deleniti,
+      rem aliquid quis eveniet incidunt esse quibusdam repellat eos debitis,
+      quos praesentium vel voluptate, mollitia eius ab pariatur illum eum?
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam deleniti,
+      rem aliquid quis eveniet incidunt esse quibusdam repellat eos debitis,
+      quos praesentium vel voluptate, mollitia eius ab pariatur illum eum?
+    </p>
+
+    <h2>ID Selector</h2>
+    <div id="demo1">
+      1. <br />
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt sed
+      facere vel quibusdam, ducimus quos tenetur aliquid voluptatem dolor
+      temporibus ab quisquam neque porro, delectus nisi culpa asperiores!
+      Similique, rem!
+    </div>
+    <div id="demo1">
+      2. <br />
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt sed
+      facere vel quibusdam, ducimus quos tenetur aliquid voluptatem dolor
+      temporibus ab quisquam neque porro, delectus nisi culpa asperiores!
+      Similique, rem!
+    </div>
+    <div id="demo1">
+      3. <br />
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt sed
+      facere vel quibusdam, ducimus quos tenetur aliquid voluptatem dolor
+      temporibus ab quisquam neque porro, delectus nisi culpa asperiores!
+      Similique, rem!
+    </div>
+
+    <h2>Class Selector</h2>
+    <div class="demo2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse
+      minus omnis voluptatum? Provident et, perferendis atque, voluptatibus
+      beatae aspernatur sint officia quo ut voluptates vel ea harum, incidunt
+      amet.
+    </div>
+    <div class="demo2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse
+      minus omnis voluptatum? Provident et, perferendis atque, voluptatibus
+      beatae aspernatur sint officia quo ut voluptates vel ea harum, incidunt
+      amet.
+    </div>
+    <div class="demo2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse
+      minus omnis voluptatum? Provident et, perferendis atque, voluptatibus
+      beatae aspernatur sint officia quo ut voluptates vel ea harum, incidunt
+      amet.
+    </div>
+
+    <h2>This Selector</h2>
+    <h4>Klicka här för att ta bort mig</h4>
+    <h4>Klicka här för att ta bort mig</h4>
+    <h4>Klicka här för att ta bort mig</h4>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        console.log("Hello jQuery");
+
+        // Type Selector
+        // $("p").hide();
+
+        // ID Selector
+        $("#demo1").hide(); // Hämtar ett element
+
+        // Class Selector
+        $(".demo2").hide(); // Hämtar flera element
+
+        // This Selector
+        $("h4").click(function () {
+          console.log(this);
+          $(this).hide();
+        });
+      });
+    </script>
+  </body>
+</html>

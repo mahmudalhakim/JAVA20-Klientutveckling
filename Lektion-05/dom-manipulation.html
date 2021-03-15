@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery - DOM Manipulation</title>
+  </head>
+  <body>
+    <h1>jQuery - DOM Manipulation</h1>
+
+    <div id="demo1">Innehållet kommer att ändras via jQuery</div>
+
+    <h2>Formulär</h2>
+    <form action="">
+      <input id="demo2" type="text" value="Test" />
+    </form>
+
+    <div id="demo3">
+      <h3>Metoden remove()</h3>
+      <p>Ta bort demo3 och alla barn.</p>
+    </div>
+
+    <h3 id="demo4">Dölj mig</h3>
+
+    <h3>Infoga Element via jQuery</h3>
+    <ul>
+      <li>List Item 1</li>
+    </ul>
+    <hr>
+
+    <p id="demo5">
+       DEMO 5
+    </p>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Manipulera HTML
+        $("#demo1").html("<h3>Metoden html()</h3>");
+
+        // Manipulera Formulär
+        // console.log( $("#demo2") );
+        // Hämta ett värde från input
+        let value = $("#demo2").val();
+        console.log(value);
+        // Ändra ett värde
+        $("#demo2").val("Demo");
+
+        // Ta bort ett element
+        $("#demo3").remove();
+
+        // Dölj ett element
+        $("#demo4").hide();
+
+        // Infoga element
+        $("ul").before("<p>Före listan.</p>");
+        $("ul").after("<p>Efter listan.</p>");
+        $("ul").prepend("<li>Start</li>");
+        $("ul").append("<li>Slut</li>");
+
+        $("#demo5").before("<p>Före DEMO 5</p>");
+        $("#demo5").after("<p>Efter DEMO 5</p>");
+        $("#demo5").prepend("<p>Start</p>");
+        $("#demo5").append("<p>Slut</p>");
+        
+
+      });
+    </script>
+  </body>
+</html>
