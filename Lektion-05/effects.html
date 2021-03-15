@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery - Effects</title>
+
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        display: none;
+      }
+      #box1 {
+        background-color: orange;
+      }
+      #box2 {
+        background-color: maroon;
+      }
+      #box3 {
+        background-color: indigo;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery - Effects</h1>
+
+    <h2>Show & Hide</h2>
+    <button id="show">Visa</button>
+    <button id="hide">Dölj</button>
+
+    <h2>Toggle</h2>
+    <button id="toggle">Dölj</button>
+
+    <h2>Fade</h2>
+    <button id="fade">Fade</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+    <hr />
+
+    <p id="demo">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto tempore
+      quam dolorem est ab facilis, aliquid esse corporis vero! Officiis ducimus
+      praesentium iste odit quos iure ipsa consectetur facilis vero!
+    </p>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#show").click(function () {
+          $("#demo").show(1000);
+        });
+
+        $("#hide").click(function () {
+          $("#demo").hide(1000);
+        });
+
+        $("#toggle").click(function () {
+          $("#demo").toggle(1000);
+          console.log($(this));
+          console.log($(this).text());
+
+          /*
+            let txt = $(this).text();
+            if(txt == "Dölj"){
+                $(this).text("Visa");
+            }else{
+                $(this).text("Dölj");
+            }
+            */
+
+          $(this).text(function (i, text) {
+            return text == "Visa" ? "Dölj" : "Visa";
+          });
+        }); // toggle
+
+        $("#fade").click(fadeMyBoxes);
+
+        function fadeMyBoxes() {
+          $("#box1").fadeTo(5000, 0.1); // 10% opacitet
+          $("#box2").fadeTo(5000, 0.5); // 50% opacitet
+          $("#box3").fadeTo(5000, 0.9); // 90% opacitet
+        }
+        
+      });
+    </script>
+  </body>
+</html>
