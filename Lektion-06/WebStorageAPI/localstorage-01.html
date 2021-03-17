@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocatStorage</title>
+  </head>
+  <body>
+    <h1>LocatStorage</h1>
+
+    <script>
+      // Spara data i LS (LocatStorage)
+      localStorage.setItem("myName", "Kalle");
+      localStorage.setItem("myFirstName", "Mahmud");
+      localStorage.setItem("myLastName", "Al Hakim");
+      localStorage.setItem("age", 48); // OBS! Lagras som string
+
+      // Hämta data från LS
+      let myFirstName = localStorage.getItem("myFirstName");
+      console.log(myFirstName);
+      console.log(localStorage.getItem("myName"));
+
+      let temp = localStorage.getItem("TEMP"); // Inget felmeddelande
+      console.log(temp); // null
+
+      // Ta bort från LS
+      localStorage.removeItem("myName");
+      localStorage.removeItem("TEMP"); // Inget felmeddelande!!!
+
+      // Visa alla nycklar
+      for (let i = 0; i < localStorage.length; i++) {
+        console.log("Key: " + localStorage.key(i));
+      }
+
+      console.log(localStorage);
+      // Rensa allt som finns i LS
+      localStorage.clear();
+      console.log(localStorage);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocatStorage</title>
+  </head>
+  <body>
+    <h1>LocatStorage</h1>
+    <h2>Spara arrayer och objekt i LS</h2>
+
+    <script>
+      localStorage.clear();
+
+      // Spara en array i LS (LocatStorage)
+      const myArray = ["A", "B", "C"];
+      console.log(myArray);
+      console.log(typeof myArray); // object (array)
+
+      localStorage.setItem("myArrayAsString", myArray); // OBS! En sträng sparas!
+
+      // Vi måste serialisera arrayen med metoden JSON.stringify
+      localStorage.setItem("myArray", JSON.stringify(myArray));
+
+      // Hämta en array från LS
+      const arrayAsStringFromLS = localStorage.getItem("myArray");
+      console.log(arrayAsStringFromLS); // OBS! En sträng
+      console.log(arrayAsStringFromLS[0]); // [
+      console.log(typeof arrayAsStringFromLS); // string
+
+      // Vi måste konvertera strängen till en array
+      const arrayFromLS = JSON.parse(localStorage.getItem("myArray"));
+      console.log(arrayFromLS);
+      console.log(arrayFromLS[0]); // A
+      console.log(typeof arrayFromLS);
+
+      // Spara ett objekt i LS
+      const myObject = {
+        first: "A",
+        second: "B",
+        third: "C",
+      };
+
+      console.log(myObject);
+      localStorage.setItem("myObjectAsString", myObject); // OBS! En sträng
+
+      // Vi måste serialisera objektet
+      localStorage.setItem("myObject", JSON.stringify(myObject));
+
+      // Hämta ett objekt från LS
+      const myObjectAsStringFromLS = localStorage.getItem("myObject");
+      console.log(myObjectAsStringFromLS); // OBS! En sträng
+
+      const myObjectFromLS = JSON.parse(localStorage.getItem("myObject"));
+      console.log(myObjectFromLS);
+      console.log(myObjectFromLS.first); // A
+    </script>
+  </body>
+</html>
