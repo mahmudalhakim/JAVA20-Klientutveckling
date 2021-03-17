@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Övning 1</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <h1>Övning 1</h1>
+
+    <div id="table"></div>
+
+    <script>
+      /* 
+Del 1
+• Spara info om en valfri bok i localStorage.
+• Välj lämpliga nycklar t.ex. title, author.
+
+Del 2
+• Skapa en HTML-tabell som visar alla nyckar och värden som finns i localStorage.
+• Du ska alltså visa info om boken från localStorage.
+*/
+
+      // Del 1
+      let title = "Java steg för steg";
+      let author = "Jan Skansholm";
+
+      localStorage.clear();
+
+      localStorage.setItem("title", title);
+      localStorage.setItem("author", author);
+
+      console.log(localStorage);
+
+      // Del 2
+      let table = `<table class="table">
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr> `;
+
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        console.log(key);
+        let value = localStorage.getItem(key);
+        console.log(value);
+
+        table += `
+                            <tr>
+                                <td>${key}</td>
+                                <td>${value}</td>
+                            </tr>
+                        `;
+      }
+
+      table += "</table>";
+      console.log(table);
+
+      document.getElementById("table").innerHTML = table;
+    </script>
+  </body>
+</html>
