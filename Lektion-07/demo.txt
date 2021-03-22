@@ -1,0 +1,2 @@
+<h2>Text från en extern fil</h2>
+<p>Lite text och annat smått och gott.</p>

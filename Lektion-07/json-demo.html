@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR - Demo</title>
+  </head>
+  <body>
+    <h1>XHR - Demo</h1>
+
+    <button id="loadBtn">Hämta JSON via Ajax</button>
+
+    <div id="output"></div>
+
+    <script>
+      document.getElementById("loadBtn").addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        console.log(xhr);
+        xhr.open("GET", "demo.json");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.response);
+            console.dir(xhr.responseText);
+            console.dir(JSON.parse(xhr.responseText));
+            console.dir(JSON.parse(xhr.responseText).name);
+            render(JSON.parse(xhr.responseText));
+          }
+        };
+      }
+
+      function render(json) {
+        document.getElementById("output").innerHTML = `
+           <h2> ${json.name} </h2>
+           <h2> ${json.email} </h2>
+        `;
+      }
+    </script>
+  </body>
+</html>

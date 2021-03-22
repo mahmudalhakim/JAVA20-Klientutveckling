@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR - Demo</title>
+  </head>
+  <body>
+    <h1>XHR - Demo</h1>
+
+    <button id="loadBtn">Hämta text via Ajax</button>
+
+    <div id="output"></div>
+
+
+    <script>
+
+      document.getElementById("loadBtn").addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        console.log(xhr);
+
+        //  Skapa en request (förfrågan)
+        xhr.open("GET", "demo.txt");
+
+        // Skicka en request
+        xhr.send();
+
+        // Egenskapen onreadystatechange
+        xhr.onreadystatechange = function () {
+          console.log(xhr.readyState);
+          console.log(xhr.status);
+          console.log(xhr.statusText);
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.response);
+            console.log(xhr.responseText);
+            document.getElementById("output").innerHTML = xhr.responseText;
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
