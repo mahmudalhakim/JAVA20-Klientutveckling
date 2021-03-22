@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <h1>Ange ditt namn</h1>
+    <form action="#">
+      <input type="text" id="name" />
+      <button id="save">Spara</button>
+    </form>
+
+    <div id="welcome"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", render);
+
+      document.getElementById("save").addEventListener("click", function () {
+        save();
+        render();
+      });
+
+      function save() {
+        const input = document.getElementById("name");
+        const name = input.value;
+        input.value = "";
+        localStorage.setItem("name", name);
+      }
+
+      function render() {
+        const name = localStorage.getItem("name") || "";
+        const welcome = document.getElementById("welcome");
+        welcome.innerHTML = `<h1>Välkommen ${name}</h1>`;
+      }
+    </script>
+  </body>
+</html>

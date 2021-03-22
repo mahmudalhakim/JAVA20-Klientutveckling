@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favoritspråk</title>
+  </head>
+  <body>
+    <h1>Ange dina favoritspråk</h1>
+    <form action="#">
+      <input type="text" id="language" />
+      <button id="add">Lägg till</button>
+    </form>
+    
+    <ul id="languages"></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", render);
+
+      document.getElementById("add").addEventListener("click", function () {
+        save();
+        render();
+      });
+
+      function save() {
+        const input = document.getElementById("language");
+        if (input.value == "") return;
+
+        const language = input.value;
+        input.value = "";
+
+        const languages = JSON.parse(localStorage.getItem("languages")) || [];
+        languages.push(language);
+
+        localStorage.setItem("languages", JSON.stringify(languages));
+      }
+
+      function render() {
+        const languages = JSON.parse(localStorage.getItem("languages")) || [];
+
+        let output = "";
+        languages.forEach((lang) => (output += `<li>${lang}</li>`));
+
+        document.getElementById("languages").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
