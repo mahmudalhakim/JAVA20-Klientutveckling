@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Övning 3</title>
+    <style>
+      #output div{
+        border: 1px dashed blue;
+        width: 180px;
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Övning 3</h1>
+    <button id="loadBtn">Skriv ut adressetiketter</button>
+    <div id="output"></div>
+
+    <script>
+      const loadBtn = document.getElementById("loadBtn");
+      loadBtn.addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            render(data);
+          }
+        };
+      }
+
+      function render(users) {
+        let output = "";
+        users.forEach(
+          (user) =>
+            (output += `
+            <div>
+              <h4>${user.name}</h4>
+              <p>
+                ${user.address.street} <br>
+                ${user.address.suite} <br>
+                ${user.address.zipcode} <br>
+                ${user.address.city} <br>
+              </p>
+            </div>`)
+        );
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

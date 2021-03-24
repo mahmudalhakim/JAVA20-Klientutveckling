@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Övning 1</title>
+  </head>
+  <body>
+    <h1>Övning 1</h1>
+    <button id="loadBtn">Visa alla namn</button>
+    <ol id="output">
+      Här visas alla namn
+    </ol>
+
+    <script>
+      document.getElementById("loadBtn").addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr);
+            let data = JSON.parse(xhr.responseText); // Vi måste konvertera text till JSON
+            console.log(data);
+            render(data);
+          }
+        };
+      }
+
+      function render(users) {
+        let output = "";
+        users.forEach((user) => (output += `<li>${user.name}</li>`));
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

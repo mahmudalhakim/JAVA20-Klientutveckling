@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Övning 5</title>
+  </head>
+  <body>
+    <h1>Övning 5</h1>
+    <button id="loadBtn">
+      Skapa en blogg med fake data från JSONPlaceholder
+    </button>
+    <div id="output"></div>
+
+    <script>
+      const loadBtn = document.getElementById("loadBtn");
+      loadBtn.addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            render(data);
+          }
+        };
+      }
+
+      function render(posts) {
+        let output = "";
+        for (let i = 0; i < 5; i++) {
+          const post = posts[i];
+          output += `
+          <h2>${post.title.toUpperCase()}</h2> 
+          <p>${post.body}</p> 
+          `;
+        }
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

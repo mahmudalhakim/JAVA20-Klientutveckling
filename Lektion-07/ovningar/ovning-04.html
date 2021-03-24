@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Övning 4</title>
+  </head>
+  <body>
+    <h1>Övning 4</h1>
+    <button id="loadBtn">
+      Skapa en todo-lista med fake data från JSONPlaceholder
+    </button>
+    <ul id="output"></ul>
+
+    <script>
+      const loadBtn = document.getElementById("loadBtn");
+      loadBtn.addEventListener("click", load);
+
+      function load() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/todos");
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            render(data);
+          }
+        };
+      }
+
+      function render(todos) {
+        let output = "";
+        todos.forEach((todo) => {
+          if (todo.completed) output += `<li><del>${todo.title}</del></li>`;
+          else output += `<li>${todo.title}</li> `;
+        });
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
