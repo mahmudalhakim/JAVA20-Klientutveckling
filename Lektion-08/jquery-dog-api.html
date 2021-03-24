@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog API via jQuery</title>
+  </head>
+  <body>
+    <h1>Dog API via jQuery</h1>
+
+    <ol id="breeds"></ol>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      const endpoint = "https://dog.ceo/api/breeds/list/all";
+
+      $(document).ready(run);
+
+      function run() {
+        $.getJSON(endpoint, function (data) {
+            console.log(data);
+            console.log(data[0]);          // undefined
+            console.log(data.message);     // Ett objekt = data finns här !!!
+            console.log(data.message[0]);  // undefined
+            console.log(data.message.key); // undefined
+            // Överkurs - Hämta första nyckel/egenskap från ett objekt
+            console.log(Object.keys(data.message)[0]); // affenpinscher 
+            
+
+            // Läs mer om metoden each 
+            // https://api.jquery.com/jquery.each/
+            $.each(data.message , (index, value) => {
+                console.log(index);
+                $("#breeds").append(`<li>${index}</li>`);
+            })
+        });
+      }
+
+    </script>
+  </body>
+</html>

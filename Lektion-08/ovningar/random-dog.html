@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random image from Dog API</title>
+    <style>
+      #loadImage {
+        font-family: "Gill Sans", sans-serif;
+        color: blueviolet;
+        cursor: pointer;
+        text-align: center;
+      }
+      
+      #randomImage img {
+        border-radius: 25px;
+        border: 1px solid blueviolet;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="loadImage">Random image from Dog API</h1>
+
+    <div id="randomImage"></div>
+
+    <p style="text-align: center">
+      <a href="https://dog.ceo/dog-api/" target="_blank">
+        https://dog.ceo/dog-api/</a
+      >
+    </p>
+
+    <script>
+      window.addEventListener("load", load);
+      document.getElementById("loadImage").addEventListener("click", load);
+      document.getElementById("randomImage").addEventListener("click", load);
+
+      function load() {
+        fetch("https://dog.ceo/api/breeds/image/random")
+          .then((resp) => resp.json())
+          .then((data) => render(data))
+          .catch((err) => console.error(err));
+      }
+
+      function render(data) {
+        const image = data.message;
+        console.log(image);
+        let output = `<img src="${image}" alt="Random Dog">`;
+        document.getElementById("randomImage").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

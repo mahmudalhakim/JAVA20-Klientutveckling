@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random User</title>
+
+    <style>
+      /*  https://www.w3schools.com/howto/howto_css_profile_card.asp */
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .title {
+        color: grey;
+        font-size: 18px;
+      }
+
+      button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+      }
+
+      button:hover,
+      a:hover {
+        opacity: 0.7;
+      }
+
+      /* https://www.w3schools.com/howto/howto_css_profile_card.asp */
+
+      #loadUser {
+        font-family: "Gill Sans", sans-serif;
+        color: blueviolet;
+        cursor: pointer;
+        text-align: center;
+      }
+      #randomUser {
+        cursor: pointer;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      button a {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="loadUser">Random User</h1>
+    <div id="randomUser"></div>
+    <h2><a href="https://randomuser.me/">https://randomuser.me/</a></h2>
+
+    <script>
+      window.addEventListener("load", load);
+      document.getElementById("loadUser").addEventListener("click", load);
+      document.getElementById("randomUser").addEventListener("click", load);
+
+      function load() {
+        fetch("https://randomuser.me/api/")
+          .then((resp) => resp.json())
+          .then((data) => render(data))
+          .catch((err) => console.error(err));
+      }
+
+      function render(data) {
+        console.log(data);
+        const user = data.results[0];
+
+        let output = `
+        <div class="card">
+            <img src="${user.picture.large}" alt="${user.name.first}" style="width:100%">
+            <h1>${user.name.first} ${user.name.last}</h1>
+            <p class="title">Age: ${user.dob.age}</p>
+            <p>City: ${user.location.country}</p>
+            <p><button><a href="mailto:${user.email}">Contact</a></button></p>
+        </div>`;
+
+        document.getElementById("randomUser").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
