@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
  * @param {*} endpoint resource in JSON format
  * @param {*} render callback when response is ready
  */
-function load(resource, render) {
+function load(endpoint, render) {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", resource);
+  xhr.open("GET", endpoint);
   xhr.send();
 
   xhr.onreadystatechange = function () {
